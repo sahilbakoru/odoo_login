@@ -77,13 +77,13 @@ const App = () => {
     authTokenWithOdoo();
   },[])
 
-  if(!isLoading){
-    return (
-      <View style={[styles.container2, styles.horizontal]}>
-      <ActivityIndicator size="large" color="black"/>
-      </View>
-    )
-  }
+  // if(!isLoading){
+  //   return (
+  //     <View style={[styles.container2, styles.horizontal]}>
+  //     <ActivityIndicator size="large" color="black"/>
+  //     </View>
+  //   )
+  // }
 
   return (
     profile !== null ? <AppStack/>:<AuthStack/>
