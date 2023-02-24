@@ -9,9 +9,13 @@ import Home from './screen/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
+import {   createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem, } from '@react-navigation/drawer';
 
 const AuthStack = () => {
+  const Drawer = createDrawerNavigator();
   const [profile, setprofile] = React.useState({});
   const [isLoading, setIsLoading] = React.useState(false);
   const Stack = createNativeStackNavigator();
@@ -27,21 +31,45 @@ const AuthStack = () => {
     ptext: "Interstellar travel refers to the idea of interstellar probes or crewed spacecraft moving between stars or planetary systems in a galaxy. Interstellar travel would be much more difficult than"
   }]
 
-
+  function Feed({ navigation }) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Feed Screen</Text>
+        <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
+        <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
+      </View>
+    );
+  }
+  function CustomDrawerContent() {
+    return (
+      <DrawerContentScrollView >
+        <DrawerItemList  />
+        <DrawerItem
+          label="Close drawer"
+          onPress={() => props.navigation.closeDrawer()}
+        />
+        <DrawerItem
+          label="Toggle drawer"
+          onPress={() => props.navigation.toggleDrawer()}
+        />
+      </DrawerContentScrollView>
+    );
+  }
 
   return (
 
     <NavigationContainer>
-      <Stack.Navigator  screenOptions={{
-        headerShown: false
-      }}
-      initialRouteName='Login'>
-        <Stack.Screen options={{ headerShown: false }}
-         name='Home' component={Home}/>
-        <Stack.Screen name='Login' component={Login}/>
-        
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Drawer.Navigator 
+    drawerContent={ <CustomDrawerContent  />}
+    screenOptions={{
+      headerShown: false
+    }}
+    initialRouteName='Feed'>
+      <Drawer.Screen name='Home' component={Feed}/>
+      <Drawer.Screen name='Login' component={Login}/>
+      
+    </Drawer.Navigator>
+  </NavigationContainer>
   );
 };
 

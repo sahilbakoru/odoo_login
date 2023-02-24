@@ -109,7 +109,7 @@ const LoginForm = ({navigation}) => {
   return (
     <View
       style={{
-        backgroundColor: '#276F98',
+        backgroundColor: '#815676',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -189,7 +189,7 @@ const LoginForm = ({navigation}) => {
                   setCheck(prev => !prev);
                 }}
                 checkBoxColor={'white'}
-                checkedCheckBoxColor={'#a0eaff'}
+                checkedCheckBoxColor={'#fff'}
                 isChecked={check}
                 rightText={'CheckBox'}
               />
@@ -215,7 +215,7 @@ const LoginForm = ({navigation}) => {
                 <View
                   style={{
                     ...styles.submitBtm,
-                    backgroundColor: check ? '#a0eaff' : 'white',
+                    backgroundColor: check ? '#fff' : 'grey',
                   }}>
                   <Text>Login</Text>
                 </View>
@@ -230,7 +230,7 @@ const LoginForm = ({navigation}) => {
 
 const styles = StyleSheet.create({
   text: {
-    color: '#74195b',
+    color: '#fff',
     fontSize: 37,
     textAlign: 'left',
     marginTop: 25,
