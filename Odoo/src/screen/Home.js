@@ -37,10 +37,12 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView style={{backgroundColor: '#fff', height: '100%'}}>
       <ScrollView>
-        <View style={{marginTop: '50%'}}>
-        <Button title="Open drawer" onPress={() => navigation.openDrawer()}  />
+        <View style={{marginTop: '10%'}}>
+
           <View style={{justifyContent: 'space-evenly', flexDirection: 'row'}}>
+
             <View style={styles.Box}>
+            <TouchableOpacity onPress={ ()=> navigation.navigate('SalesChart')}>
               <Image
                 style={styles.logo}
                 source={{
@@ -48,6 +50,8 @@ const Home = ({navigation}) => {
                 }}
               />
               <Text>Sales Chart</Text>
+        
+            </TouchableOpacity>
             </View>
             <View style={styles.Box}>
               <Image

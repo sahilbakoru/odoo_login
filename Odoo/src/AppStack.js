@@ -63,7 +63,7 @@ const AppStack = () => {
         headerShown: false
       }}
       initialRouteName='Home'>
-        <Drawer.Screen name='Home' component={Feed}/>
+        <Drawer.Screen name='Home' component={Home}/>
         <Drawer.Screen name='Login' component={Login}/>
         
       </Drawer.Navigator>

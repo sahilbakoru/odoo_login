@@ -1,97 +1,117 @@
-
 import React from 'react';
-import { Text, View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
-
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  ActivityIndicator,
+  Button,
+} from 'react-native';
 
 import Login from './screen/Login';
 import Home from './screen/Home';
+import SalesChart from './screen/SalesChart';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import {   createDrawerNavigator,
+import {
+  createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItemList,
-  DrawerItem, } from '@react-navigation/drawer';
+  DrawerItem,
+} from '@react-navigation/drawer';
 
 const AuthStack = () => {
   const Drawer = createDrawerNavigator();
   const [profile, setprofile] = React.useState({});
   const [isLoading, setIsLoading] = React.useState(false);
   const Stack = createNativeStackNavigator();
-  const data = [{
-    index: "1",
-    imgURL: "",
-    title: "INTER STELLER",
-    ptext: "Interstellar travel refers to the idea of interstellar probes or crewed spacecraft moving between stars or planetary systems in a galaxy. Interstellar travel would be much more difficult than"
-  }, {
-    index: "2",
-    imgURL: "",
-    title: "MARIAN",
-    ptext: "Interstellar travel refers to the idea of interstellar probes or crewed spacecraft moving between stars or planetary systems in a galaxy. Interstellar travel would be much more difficult than"
-  }]
+  const data = [
+    {
+      index: '1',
+      imgURL: '',
+      title: 'INTER STELLER',
+      ptext:
+        'Interstellar travel refers to the idea of interstellar probes or crewed spacecraft moving between stars or planetary systems in a galaxy. Interstellar travel would be much more difficult than',
+    },
+    {
+      index: '2',
+      imgURL: '',
+      title: 'MARIAN',
+      ptext:
+        'Interstellar travel refers to the idea of interstellar probes or crewed spacecraft moving between stars or planetary systems in a galaxy. Interstellar travel would be much more difficult than',
+    },
+  ];
 
-  function Feed({ navigation }) {
+  function Feed() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Feed Screen</Text>
-        <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-        <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Text>Feed</Text>
       </View>
-    );
-  }
-  function CustomDrawerContent() {
-    return (
-      <DrawerContentScrollView >
-        <DrawerItemList  />
-        <DrawerItem
-          label="Close drawer"
-          onPress={() => props.navigation.closeDrawer()}
-        />
-        <DrawerItem
-          label="Toggle drawer"
-          onPress={() => props.navigation.toggleDrawer()}
-        />
-      </DrawerContentScrollView>
     );
   }
 
   return (
-
     <NavigationContainer>
-    <Drawer.Navigator 
-    drawerContent={ <CustomDrawerContent  />}
-    screenOptions={{
-      headerShown: false
-    }}
-    initialRouteName='Feed'>
-      <Drawer.Screen name='Home' component={Feed}/>
-      <Drawer.Screen name='Login' component={Login}/>
-      
-    </Drawer.Navigator>
-  </NavigationContainer>
+      <Drawer.Navigator initialRouteName="Login">
+        <Drawer.Screen
+          options={{
+            title: 'Home',
+            headerStyle: {
+              backgroundColor: '#3478F5',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          name="Home"
+          component={Home}
+        />
+        <Drawer.Screen
+          options={{headerShown: false}}
+          name="Login"
+          component={Login}
+        />
+        <Drawer.Screen name="Feed" component={Feed} />
+        <Drawer.Screen
+          options={{
+            title: 'Sales Chart',
+            headerStyle: {
+              backgroundColor: '#3478F5',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          name="SalesChart"
+          component={SalesChart}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    color: "white"
+    color: 'white',
   },
   text: {
     fontSize: 30,
-    color: "white",
+    color: 'white',
     marginTop: 70,
-    textAlign: "center"
+    textAlign: 'center',
   },
   container2: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10
-  }
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });
 
 export default AuthStack;
