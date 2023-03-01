@@ -8,48 +8,18 @@ import {
   Button,
 } from 'react-native';
 
-import Login from './screen/Login';
 import Home from './screen/Home';
 import SalesChart from './screen/SalesChart';
+import ItemHistory from './screen/ItemHistory';
+import StockInquiry from './screen/StockInquiry';
+import SalesAnalysis from './screen/SalesAnalysis';
+import Reports from './screen/Reports';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
-const AuthStack = () => {
+const AuthStack = ({navigation}) => {
   const Drawer = createDrawerNavigator();
-  const [profile, setprofile] = React.useState({});
-  const [isLoading, setIsLoading] = React.useState(false);
-  const Stack = createNativeStackNavigator();
-  const data = [
-    {
-      index: '1',
-      imgURL: '',
-      title: 'INTER STELLER',
-      ptext:
-        'Interstellar travel refers to the idea of interstellar probes or crewed spacecraft moving between stars or planetary systems in a galaxy. Interstellar travel would be much more difficult than',
-    },
-    {
-      index: '2',
-      imgURL: '',
-      title: 'MARIAN',
-      ptext:
-        'Interstellar travel refers to the idea of interstellar probes or crewed spacecraft moving between stars or planetary systems in a galaxy. Interstellar travel would be much more difficult than',
-    },
-  ];
-
-  function Feed() {
-    return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>Feed</Text>
-      </View>
-    );
-  }
 
   return (
     <NavigationContainer>
@@ -68,12 +38,7 @@ const AuthStack = () => {
           name="Home"
           component={Home}
         />
-        <Drawer.Screen
-          options={{headerShown: false}}
-          name="Login"
-          component={Login}
-        />
-        <Drawer.Screen name="Feed" component={Feed} />
+
         <Drawer.Screen
           options={{
             title: 'Sales Chart',
@@ -88,6 +53,69 @@ const AuthStack = () => {
           name="SalesChart"
           component={SalesChart}
         />
+        <Drawer.Screen
+          options={{
+            headerRight: () => {
+              return <Button title="Home" color="#fff" />;
+            },
+            title: 'Item History',
+            headerStyle: {
+              backgroundColor: '#3478F5',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          name="ItemHistory"
+          component={ItemHistory}
+        />
+
+        <Drawer.Screen
+          options={{
+            title: 'Stock Inquiry',
+            headerStyle: {
+              backgroundColor: '#3478F5',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          name="StockInquiry"
+          component={StockInquiry}
+        />
+
+        <Drawer.Screen
+          options={{
+            title: 'Sales Analysis',
+            headerStyle: {
+              backgroundColor: '#3478F5',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          name="SalesAnalysis"
+          component={SalesAnalysis}
+        />
+
+<Drawer.Screen
+          options={{
+            title: 'Reports',
+            headerStyle: {
+              backgroundColor: '#3478F5',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          name="Reports"
+          component={Reports}
+        />
+
       </Drawer.Navigator>
     </NavigationContainer>
   );

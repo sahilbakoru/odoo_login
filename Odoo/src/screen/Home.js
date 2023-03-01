@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-
 const Home = ({navigation}) => {
   const [data, setData] = useState();
 
@@ -38,22 +37,21 @@ const Home = ({navigation}) => {
     <SafeAreaView style={{backgroundColor: '#fff', height: '100%'}}>
       <ScrollView>
         <View style={{marginTop: '10%'}}>
-
           <View style={{justifyContent: 'space-evenly', flexDirection: 'row'}}>
-
             <View style={styles.Box}>
-            <TouchableOpacity onPress={ ()=> navigation.navigate('SalesChart')}>
-              <Image
-                style={styles.logo}
-                source={{
-                  uri: 'https://www.tableau.com/sites/default/files/2021-06/DataGlossary_Icons_Pie%20Chart.jpg',
-                }}
-              />
-              <Text>Sales Chart</Text>
-        
-            </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('SalesChart')}>
+                <Image
+                  style={styles.logo}
+                  source={{
+                    uri: 'https://www.tableau.com/sites/default/files/2021-06/DataGlossary_Icons_Pie%20Chart.jpg',
+                  }}
+                />
+                <Text>Sales Chart</Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.Box}>
+              <TouchableOpacity onPress={() => navigation.navigate('Reports')} >
               <Image
                 style={styles.logo}
                 source={{
@@ -61,38 +59,49 @@ const Home = ({navigation}) => {
                 }}
               />
               <Text>Reports</Text>
+              </TouchableOpacity>
             </View>
           </View>
           <View style={{justifyContent: 'space-evenly', flexDirection: 'row'}}>
             <View style={styles.Box}>
-              <Image
-                style={styles.logo}
-                source={{
-                  uri: 'https://previews.123rf.com/images/ppbig/ppbig1904/ppbig190401458/120274154-warehouse-worker-stock-checking-icon-on-white-background.jpg',
-                }}
-              />
-              <Text>Stock Inquiry</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('StockInquiry')}>
+                <Image
+                  style={styles.logo}
+                  source={{
+                    uri: 'https://previews.123rf.com/images/ppbig/ppbig1904/ppbig190401458/120274154-warehouse-worker-stock-checking-icon-on-white-background.jpg',
+                  }}
+                />
+                <Text>Stock Inquiry</Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.Box}>
-              <Image
-                style={styles.logo}
-                source={{
-                  uri: 'https://w7.pngwing.com/pngs/266/224/png-transparent-computer-icons-history-angle-text-rectangle-thumbnail.png',
-                }}
-              />
-              <Text>Item History</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('ItemHistory')}>
+                <Image
+                  style={styles.logo}
+                  source={{
+                    uri: 'https://w7.pngwing.com/pngs/266/224/png-transparent-computer-icons-history-angle-text-rectangle-thumbnail.png',
+                  }}
+                />
+                <Text>Item History</Text>
+              </TouchableOpacity>
             </View>
           </View>
           <View style={{justifyContent: 'space-evenly', flexDirection: 'row'}}>
             <View style={styles.Box}>
-              <Image
-                style={styles.logo}
-                source={{
-                  uri: 'https://cdn-icons-png.flaticon.com/512/3090/3090011.png',
-                }}
-              />
-              <Text>Sales Analysis</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('SalesAnalysis')}>
+                <Image
+                  style={styles.logo}
+                  source={{
+                    uri: 'https://cdn-icons-png.flaticon.com/512/3090/3090011.png',
+                  }}
+                />
+                <Text>Sales Analysis</Text>
+              </TouchableOpacity>
             </View>
+
             <View style={styles.Box}>
               <Image
                 style={styles.logo}
@@ -125,7 +134,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: '30%',
     height: 100,
-
   },
   input: {
     margin: 10,
