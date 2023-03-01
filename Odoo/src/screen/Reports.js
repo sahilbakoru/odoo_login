@@ -20,7 +20,7 @@ const Reports = () => {
     </TouchableOpacity>
 
     <TouchableOpacity style={styles.reportList}>
-      <Text style={styles.reportText}>Item Moment Summary</Text>
+      <Text style={styles.reportText}>Item Movement Summary</Text>
     </TouchableOpacity>
 
     <TouchableOpacity style={styles.reportList}>
