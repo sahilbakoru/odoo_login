@@ -57,9 +57,10 @@ const AuthStack = ({navigation}) => {
         />
         <Drawer.Screen
           options={{
-            headerRight: () => {
-              return <Button title="Home" color="#fff" />;
-            },
+           // Don't remove this comment.
+            // headerRight: () => {
+            //   return <Button title="Home" color="#fff" />;
+            // },
             title: 'Item History',
             headerStyle: {
               backgroundColor: '#3478F5',
