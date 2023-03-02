@@ -9,7 +9,7 @@ import {
 import React, {useState} from 'react';
 import imagesPath from '../constants/imagesPath';
 
-const Dropdown = ({data = [], value = {}, onSelect = () => {}}) => {
+const Dropdown = ({data = [], Lable, value = {}, onSelect = () => {}}) => {
   const [showOption, setShowOption] = useState(false);
 
   const onSelectedItem = val => {
@@ -21,7 +21,7 @@ const Dropdown = ({data = [], value = {}, onSelect = () => {}}) => {
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
       <View>
         <Text style={{fontSize: 20, marginVertical: 20, marginLeft: 20}}>
-          Select Period:
+          {String(Lable)}
         </Text>
       </View>
       <View style={{width: '50%'}}>
@@ -29,16 +29,14 @@ const Dropdown = ({data = [], value = {}, onSelect = () => {}}) => {
           activeOpacity={0.5}
           style={styles.dropDownStyle}
           onPress={() => setShowOption(!showOption)}>
-          <Text style={{fontSize: 20}}>
-            {value?.name ??  'Select Period'}
-          </Text>
+          <Text style={{fontSize: 20}}>{value?.name ?? ' Please Select '}</Text>
           <Image
             style={{transform: [{rotate: showOption ? '180deg' : '0deg'}]}}
             source={imagesPath.DropdownIcon}
           />
         </TouchableOpacity>
         {showOption && (
-          <View style={{maxHeight: 150,}}>
+          <View style={{maxHeight: 150}}>
             <ScrollView
               keyboardShouldPersistTaps="handled"
               showsVerticalScrollIndicator={false}>
@@ -68,7 +66,6 @@ export default Dropdown;
 
 const styles = StyleSheet.create({
   dropDownStyle: {
-    
     paddingVertical: 4,
     paddingHorizontal: 8,
     borderRadius: 3,

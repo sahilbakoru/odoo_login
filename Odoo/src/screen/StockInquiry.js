@@ -21,13 +21,14 @@ import {
       {id: 5, name: 'weak2'},
       {id: 6, name: 'weak3'},
     ];
-  
+    let Lable = 'Select Period:'
+
     const onSelect = item => {
       setSelectedItem(item);
     };
     return (
       <View>
-        <Dropdown data={data} onSelect={onSelect} value={selectedItem} />
+        <Dropdown data={data} onSelect={onSelect} value={selectedItem} Lable={Lable}  />
   
         <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
           <TextInput style={styles.datebox}></TextInput>

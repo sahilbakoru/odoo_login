@@ -103,6 +103,9 @@ const Home = ({navigation}) => {
             </View>
 
             <View style={styles.Box}>
+              <TouchableOpacity 
+              onPress={() => navigation.navigate('Transaction')}
+              >
               <Image
                 style={styles.logo}
                 source={{
@@ -110,6 +113,7 @@ const Home = ({navigation}) => {
                 }}
               />
               <Text>Transactions</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>

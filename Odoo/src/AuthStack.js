@@ -14,6 +14,8 @@ import ItemHistory from './screen/ItemHistory';
 import StockInquiry from './screen/StockInquiry';
 import SalesAnalysis from './screen/SalesAnalysis';
 import Reports from './screen/Reports';
+import Transaction from './screen/Transaction';
+
 import {NavigationContainer} from '@react-navigation/native';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -114,6 +116,21 @@ const AuthStack = ({navigation}) => {
           }}
           name="Reports"
           component={Reports}
+        />
+
+<Drawer.Screen
+          options={{
+            title: 'Transaction',
+            headerStyle: {
+              backgroundColor: '#3478F5',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          name="Transaction"
+          component={Transaction}
         />
 
       </Drawer.Navigator>
