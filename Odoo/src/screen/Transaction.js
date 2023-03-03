@@ -58,11 +58,22 @@ const Transaction = () => {
         value={selectedCashier}
         Lable={Lable3}
       />
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}>
         <Text style={{fontSize: 20, color: '#000', marginLeft: 20}}>
           Amount:
         </Text>
-        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+            width: '55%',
+            marginTop: '4%',
+          }}>
           <TextInput placeholder="From" style={styles.datebox}></TextInput>
           <TextInput placeholder="To" style={styles.datebox}></TextInput>
         </View>
@@ -72,7 +83,7 @@ const Transaction = () => {
           activeOpacity={0.8}
           style={{
             backgroundColor: '#02a390',
-            marginTop: '4%',
+            marginTop: '8%',
             width: '50%',
             padding: '3.5%',
             alignItems: 'center',
@@ -92,7 +103,7 @@ export default Transaction;
 const styles = StyleSheet.create({
   datebox: {
     padding: '1%',
-    width: '33%',
+    width: '45%',
     height: 40,
     borderColor: '#000',
     borderWidth: 1,
