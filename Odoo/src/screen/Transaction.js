@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import Dropdown from './Dropdown';
-import imagesPath from '../constants/imagesPath';
+
 
 const Transaction = () => {
   const [selectedItem, setSelectedItem] = useState(null);
